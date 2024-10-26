@@ -1,0 +1,27 @@
+.container{
+    width: 100vw;
+    display: flex;
+    gap: 25px;
+    justify-content: flex-end;
+}
+.MuiButton-root.button{
+    background-color: #340773;
+    max-width: 200px;
+    min-width: 150px;
+    width: 15%;
+    height: 50px;
+    border-radius: 10px;
+    color: #FFF;
+    gap: 7px;
+    font-family: "Poppins-Bold";
+    font-size: 1.2rem;
+}
+.MuiButton-root.button:hover{
+    background-color: #19013B;
+    transform: scale(1.1);
+}
+.MuiListItemText-root.textButtonMenu{
+    color: #FFF;
+    font-family: "Poppins-Bold";
+    font-size: 1.2rem;
+}

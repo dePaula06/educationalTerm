@@ -1,0 +1,68 @@
+.containerButton {
+    margin-top: 20%; /* Valor padrão para telas grandes */
+}
+
+@media (max-width: 1440px) {
+    .containerButton {
+        margin-top: 25%; /* Aumenta a margem em telas menores */
+    }
+}
+
+@media (max-width: 1024px) {
+    .containerButton {
+        margin-top: 30%; /* Aumenta a margem em telas ainda menores */
+    }
+}
+
+@media (max-width: 768px) {
+    .containerButton {
+        margin-top: 35%; /* Aumenta a margem em telas pequenas */
+    }
+}
+
+@media (max-width: 480px) {
+    .containerButton {
+        margin-top: 40%; /* Aumenta a margem em telas muito pequenas */
+    }
+}
+.MuiButton-root.buttonInit {
+    width: 200%;
+    font-family: "MonumentExtend-UltraBold";
+    font-size: 2rem;
+    background-color: #340773;
+    color: #FFF;
+    margin-left: -50%;
+    border-radius: 10px;
+}
+.MuiButton-root.buttonInit:hover{
+    background-color: #19013B;
+    transform: scale(1.1);
+}
+
+@media (max-width: 1440px) {
+    .MuiButton-root.buttonInit {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .MuiButton-root.buttonInit {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .MuiButton-root.buttonInit {
+        font-size: 1.6rem;
+        width: 150%;
+        margin-left: -25%;
+    }
+}
+
+@media (max-width: 480px) {
+    .MuiButton-root.buttonInit {
+        font-size: 1.6rem;
+        width: 100%;
+        margin-left: 0;
+    }
+}
