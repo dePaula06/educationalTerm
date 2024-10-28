@@ -1,0 +1,115 @@
+.containerObra {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; /* Altura mínima da tela, mas permite expandir */
+    overflow-y: auto; /* Permite rolagem vertical */
+  }
+  
+  .imageBackgroundObra {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Continua ocupando 100% da altura da tela */
+    background-image: url("../../assets/imageWork.png");
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+  
+  .blackOpacityObra {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.8;
+    z-index: 1;
+  }
+  
+  .contentObra {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 5%; /* Ajuste para dar espaço nas margens */
+    min-height: 100vh; /* Altura mínima para permitir rolagem */
+  }
+  
+  .MuiTypography-root.titleObra {
+    font-family: "Poppins-ExtraBold";
+    font-size: 2.8rem;
+  }
+  
+  .MuiTypography-root.textObra {
+    font-family: "Poppins-Medium";
+    font-size: 1.1rem;
+    width: 65%;
+    margin-top: 2%;
+    text-align: justify;
+  }
+  
+  .MuiTypography-root.referenceObra {
+    font-family: "Poppins-Bold";
+    font-size: 1.3rem;
+    width: 65%;
+    margin-top: 1%;
+  }
+  
+  /* Responsividade para tablets */
+  @media (max-width: 768px) {
+    .contentObra {
+      padding: 0 10%; /* Margem de 10% nas laterais */
+    }
+  
+    .MuiTypography-root.titleObra {
+      font-size: 2.3rem;
+    }
+  
+    .MuiTypography-root.textObra,
+    .MuiTypography-root.referenceObra {
+      font-size: 0.9rem;
+      width: 80%;
+    }
+  }
+  
+  /* Responsividade para celulares */
+  @media (max-width: 480px) {
+    .contentObra {
+      padding: 0 5%;
+    }
+  
+    .MuiTypography-root.titleObra {
+      font-size: 1.8rem;
+    }
+  
+    .MuiTypography-root.textObra,
+    .MuiTypography-root.referenceObra {
+      font-size: 0.8rem;
+      width: 90%;
+    }
+  }
+  
+  /* Responsividade para telas muito pequenas, abaixo de 412px */
+  @media (max-width: 412px) {
+    .contentObra {
+      padding: 0 3%;
+    }
+  
+    .MuiTypography-root.titleObra {
+      font-size: 1.2rem;
+    }
+  
+    .MuiTypography-root.textObra,
+    .MuiTypography-root.referenceObra {
+      font-size: 0.6rem;
+      width: 95%;
+    }
+  }
+  
