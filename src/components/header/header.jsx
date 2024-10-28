@@ -1,5 +1,6 @@
 // Import hooks
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Import components MUI Material
 import {
@@ -35,6 +36,15 @@ const Header = () => {
     }
     setDrawerOpen(open);
   };
+
+  const navigation = useNavigate();
+  function handleBiography() {
+    navigation("/biografia");
+  }
+
+  function handleWork() {
+    navigation("/obra");
+  }
 
   return (
     <>
@@ -72,7 +82,7 @@ const Header = () => {
               animate={{ opacity: 1, x: 0 }} // Tornar visível e retornar à posição original
               transition={{ duration: 0.6 }} // Duração da animação
             >
-              <Button className="button">
+              <Button className="button" onClick={handleWork}>
                 <FontAwesomeIcon icon={faBookOpen} />
                 Obra
               </Button>
@@ -84,7 +94,7 @@ const Header = () => {
               animate={{ opacity: 1, x: 0 }} // Tornar visível e retornar à posição original
               transition={{ duration: 0.6, delay: 0.2 }} // Duração da animação com um pequeno atraso
             >
-              <Button className="button">
+              <Button className="button" onClick={handleBiography}>
                 <FontAwesomeIcon icon={faPersonDress} />
                 Autora
               </Button>
@@ -102,15 +112,25 @@ const Header = () => {
             backgroundColor: "#1E1E1E", // Cor do fundo do Drawer
           }}
           role="presentation"
-          onClick={toggleDrawer(false)}
-          onKeyDown={toggleDrawer(false)}
         >
           <List>
-            <ListItem button>
-              <ListItemText className="textButtonMenu" primary="Obra" />
-            </ListItem>
-            <ListItem button>
+            <ListItem
+              button
+              onClick={() => {
+                handleBiography();
+                setDrawerOpen(false);
+              }}
+            >
               <ListItemText className="textButtonMenu" primary="Autora" />
+            </ListItem>
+            <ListItem
+              button
+              onClick={() => {
+                handleWork();
+                setDrawerOpen(false);
+              }}
+            >
+              <ListItemText className="textButtonMenu" primary="Obra" />
             </ListItem>
           </List>
         </Box>
