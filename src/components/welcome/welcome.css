@@ -39,3 +39,13 @@
         font-size: 1rem; /* Diminuir ainda mais a fonte do texto de boas-vindas */
     }
 }
+@media (max-width: 1024px) and (max-height: 600px) {
+    .MuiTypography-root.title {
+        font-size: 2rem; /* Diminuir ainda mais a fonte do título */
+        margin-top: 75px;
+    }
+
+    .MuiTypography-root.textWelcome {
+        font-size: 1rem; /* Diminuir ainda mais a fonte do texto de boas-vindas */
+    }
+  }

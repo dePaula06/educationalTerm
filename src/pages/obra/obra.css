@@ -112,4 +112,19 @@
       width: 95%;
     }
   }
+  @media (max-width: 1024px) and (max-height: 600px) {
+    .contentObra {
+      padding: 2% 3%; /* Margem de 3% nas laterais */
+    }
+  
+    .MuiTypography-root.titleObra {
+      font-size: 1.8rem;
+    }
+  
+    .MuiTypography-root.textObra,
+    .MuiTypography-root.referenceObra {
+      font-size: 0.8rem;
+      width: 95%; /* Quase toda a largura em telas muito pequenas */
+    }
+  }
   
