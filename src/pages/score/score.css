@@ -1,0 +1,79 @@
+/* Container principal para a página de pontuação */
+.containerScore {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; /* Altura mínima da tela */
+    overflow-y: auto; /* Permite rolagem vertical */
+  }
+  
+  .imageBackgroundScore {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Continuação de 100% da altura */
+    background-image: url("../../assets/imageVictory.png");
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 0; /* A imagem fica atrás do conteúdo */
+  }
+  
+  .blackOpacityScore {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.8; /* Opacidade escura para contraste */
+    z-index: 1; /* Fica acima da imagem de fundo */
+  }
+  
+  .contentScore {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 5%; /* Ajuste para dar espaço nas margens */
+    min-height: 100vh; /* Altura mínima para permitir rolagem */
+  }
+  
+  /* Adicionando estilo para o texto de parabéns e pontuação */
+  .contentScore h1 {
+    font-family: "Poppins-Medium", sans-serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .contentScore p {
+    font-family: "Poppins-Regular", sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+  }
+  
+  button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: 'Poppins-Bold', sans-serif;
+    font-size: 1rem;
+    padding: 10px 20px;
+    background-color: #83DF68;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 3; /* Garantindo que o botão fique acima dos outros elementos */
+  }
+  
+  
+  button:hover {
+    background-color: #6bba4a; /* Efeito de hover */
+  }
+  
