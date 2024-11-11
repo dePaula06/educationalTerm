@@ -3,8 +3,19 @@ import { useNavigate } from "react-router-dom"; // Importando useNavigate
 import { Button, Typography, TextField } from "@mui/material";
 import "./game.css";
 
-const words = ["TERMO", "EXEMPLO", "CODIGO"];
-const hints = ["Dica para termo", "Dica para exemplo", "Dica para código"];
+// Import ícones FontAwesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight, faCheck } from "@fortawesome/free-solid-svg-icons";
+
+const words = ["OXUM", "ORIXAS", "YABAS", "RAINHA", "VERRUGA", "SEIS"];
+const hints = [
+  "Os olhos da mãe da protagonista eram 'cor de olhos d’água'. Águas de Mamãe...",
+  "Ao voltar para casa, a protagonista sentiu-se cumprindo um ritual. Descobrir a cor dos olhos de sua mãe era como uma oferenda aos...",
+  "Como eram chamadas as ancestrais da protagonista, que entoavam louvores e aravam a terra desde a África?",
+  "Qual era a brincadeira favorita da mãe com suas filhas?",
+  "Ao brincar de pentear a boneca-mãe, as filhas confundiram uma ___ com um piolho.",
+  "Quantas irmãs a protagonista tem?",
+];
 
 function Game() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -92,7 +103,7 @@ function Game() {
             align="center"
             sx={{ fontFamily: "Poppins-Medium", marginTop: "10px" }}
           >
-            {currentHint}
+            Dica: {currentHint}
           </Typography>
         </div>
         <div className="attemptsGrid">
@@ -144,8 +155,10 @@ function Game() {
               variant="outlined"
               value={currentAttempt}
               onChange={(e) => {
-                if (e.target.value.length <= currentWord.length) {
-                  setCurrentAttempt(e.target.value.toUpperCase());
+                const regex = /^[A-Z]*$/; // Somente letras maiúsculas sem acentuação
+                const input = e.target.value.toUpperCase().replace(/[^A-Z]/g, ""); // Remove acentos e caracteres inválidos
+                if (input.length <= currentWord.length && regex.test(input)) {
+                  setCurrentAttempt(input);
                 }
               }}
               onKeyPress={(e) => e.key === "Enter" && checkAttempt()}
@@ -162,6 +175,7 @@ function Game() {
                 fontFamily: "Poppins-Bold",
                 fontSize: "1.2rem",
                 textTransform: "capitalize",
+                marginLeft: "20px",
               }}
             >
               Verificar
@@ -192,9 +206,26 @@ function Game() {
                 fontFamily: "Poppins-Bold",
                 fontSize: "1.2rem",
                 textTransform: "capitalize",
+                marginLeft: "20px",
               }}
             >
-              {currentWordIndex < words.length - 1 ? "Próxima Palavra" : "Finalizar"}
+              {currentWordIndex < words.length - 1 ? (
+                <>
+                  Próxima Palavra{" "}
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    style={{ marginLeft: "15px" }}
+                  />
+                </>
+              ) : (
+                <>
+                  Finalizar{" "}
+                  <FontAwesomeIcon
+                    icon={faCheck}
+                    style={{ marginLeft: "15px" }}
+                  />
+                </>
+              )}
             </Button>
           </>
         )}
