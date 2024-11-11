@@ -1,6 +1,6 @@
-import React from 'react';
-import { Typography, Button } from '@mui/material';
-import { useLocation } from 'react-router-dom';
+import React from "react";
+import { Typography, Button } from "@mui/material";
+import { useLocation } from "react-router-dom";
 
 // Importando o estilo
 import "./score.css";
@@ -15,35 +15,64 @@ function ScorePage() {
       <div className="imageBackgroundScore" />
       <div className="blackOpacityScore" />
       <div className="contentScore">
-        <Typography align="center" sx={{color: "#fff", fontFamily: "Poppins-Medium", fontSize: "2rem", marginBottom: '20px'}}>
-          Parabéns pelo desempenho no jogo "Termo"! <br />
-          Sua pontuação final foi: {score}
+        <Typography
+          sx={{
+            fontFamily: "MonumentExtend-UltraBold",
+            fontSize: { xs: "2rem", sm: "3rem", md: "3.5rem", lg: "4rem" },
+            marginTop: { xs: "-25px", sm: "-50px", md: "-100px" },
+          }}
+        >
+          FIM DA JORNADA!
         </Typography>
-        <Typography align="center" sx={{color: "#fff", fontFamily: "Poppins-Regular", fontSize: "1.2rem", marginBottom: '40px'}}>
-          Inspirado no conto "Olhos D'Água", onde a reflexão e a percepção se entrelaçam. Você demonstrou grande habilidade ao conectar as palavras e completar o desafio!
+        <Typography
+          sx={{
+            fontFamily: "Poppins-Medium",
+            fontSize:  { xs: "1rem", sm: "1.3rem", md: "1.5rem", lg: "1.5rem" },
+            marginTop: "50px",
+            width: "70%",
+          }}
+        >
+          Assim como a protagonista desvendou as raízes de sua história, você
+          decifrou cada palavra e chegou ao final da jornada! Parabéns por cada
+          acerto conquistado!
         </Typography>
+        <Typography
+          sx={{
+            fontFamily: "Poppins-Medium",
+            fontSize: { xs: "1rem", sm: "1.3rem", md: "1.5rem", lg: "1.5rem" },
+            marginTop: "75px",
+            width: "70%"
+          }}
+        >
+          Sua pontuação final foi de{" "}
+          <span
+            style={{ fontWeight: "bold" }}
+          >
+            {score} pontos
+          </span>
+          . Obrigado por jogar e embarcar nesta viagem de descobertas. Que a
+          sabedoria das palavras continue a te guiar!
+        </Typography>
+        <div className="buttonContainer">
+          <Button
+            onClick={() => window.location.href = '/'}
+            sx={{
+              fontSize: {lg: "1.2rem", md: "1.2rem", xs: "1rem"},
+              width: "50%",
+              fontFamily: 'Poppins-Bold',
+              color: "#fff",
+              textTransform: "capitalize",
+              padding: '10px 20px',
+              backgroundColor: '#83DF68', // Cor do botão
+              "&:hover": {
+                backgroundColor: '#6bba4a' // Efeito de hover
+              }
+            }}
+          >
+            Voltar para o Jogo
+          </Button>
+        </div>
       </div>
-      
-      {/* Botão posicionado no canto superior direito */}
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={() => window.location.href = '/'}
-        sx={{
-          position: 'absolute',
-          top: '20px',
-          right: '20px',
-          fontSize: '1rem',
-          fontFamily: 'Poppins-Bold',
-          padding: '10px 20px',
-          backgroundColor: '#83DF68', // Cor do botão
-          "&:hover": {
-            backgroundColor: '#6bba4a' // Efeito de hover
-          }
-        }}
-      >
-        Voltar para o Jogo
-      </Button>
     </div>
   );
 }
