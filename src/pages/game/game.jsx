@@ -174,8 +174,7 @@ function Game() {
                 color: "#FFF",
                 fontFamily: "Poppins-Bold",
                 fontSize: "1.2rem",
-                textTransform: "capitalize",
-                marginLeft: "20px",
+                textTransform: "capitalize"
               }}
             >
               Verificar
@@ -205,8 +204,7 @@ function Game() {
                 color: "#FFF",
                 fontFamily: "Poppins-Bold",
                 fontSize: "1.2rem",
-                textTransform: "capitalize",
-                marginLeft: "20px",
+                textTransform: "capitalize"
               }}
             >
               {currentWordIndex < words.length - 1 ? (
