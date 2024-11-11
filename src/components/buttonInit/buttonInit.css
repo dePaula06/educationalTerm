@@ -63,7 +63,7 @@
     .MuiButton-root.buttonInit {
         font-size: 1.6rem;
         width: 125%;
-        margin-left: 0;
+        margin-left: -12.5%;
     }
 }
 @media (max-width: 1024px) and (max-height: 600px) {
