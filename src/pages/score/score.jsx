@@ -16,18 +16,19 @@ function ScorePage() {
       <div className="blackOpacityScore" />
       <div className="contentScore">
         <Typography
+          className="typographyTitle"
           sx={{
             fontFamily: "MonumentExtend-UltraBold",
-            fontSize: { xs: "2rem", sm: "3rem", md: "3.5rem", lg: "4rem" },
-            marginTop: { xs: "-25px", sm: "-50px", md: "-100px" },
+            fontSize: { xs: "1.5rem", sm: "2rem", md: "3rem", lg: "4rem" },
           }}
         >
           FIM DA JORNADA!
         </Typography>
         <Typography
+          className="typographyDescription"
           sx={{
             fontFamily: "Poppins-Medium",
-            fontSize:  { xs: "1rem", sm: "1.3rem", md: "1.5rem", lg: "1.5rem" },
+            fontSize: { xs: "0.8rem", sm: "1rem", md: "1.2rem" },
             marginTop: "50px",
             width: "70%",
           }}
@@ -37,17 +38,17 @@ function ScorePage() {
           acerto conquistado!
         </Typography>
         <Typography
+          className="typographyScore"
           sx={{
             fontFamily: "Poppins-Medium",
-            fontSize: { xs: "1rem", sm: "1.3rem", md: "1.5rem", lg: "1.5rem" },
+            fontSize: { xs: "1.2rem", sm: "1.3rem", md: "1.5rem", lg: "1.5rem" },
             marginTop: "75px",
-            width: "70%"
+            width: "70%",
+            fontWeight: "bold",
           }}
         >
           Sua pontuação final foi de{" "}
-          <span
-            style={{ fontWeight: "bold" }}
-          >
+          <span style={{ fontWeight: "bold" }}>
             {score} pontos
           </span>
           . Obrigado por jogar e embarcar nesta viagem de descobertas. Que a
@@ -57,8 +58,8 @@ function ScorePage() {
           <Button
             onClick={() => window.location.href = '/'}
             sx={{
-              fontSize: {lg: "1.2rem", md: "1.2rem", xs: "1rem"},
-              width: "50%",
+              fontSize: { lg: "1.2rem", md: "1.2rem", xs: "1rem" },
+              width: "70%",
               fontFamily: 'Poppins-Bold',
               color: "#fff",
               textTransform: "capitalize",

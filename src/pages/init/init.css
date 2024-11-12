@@ -3,6 +3,7 @@
   width: 100%;
   height: 100vh; /* Ocupará 100% da altura da tela */
   overflow-y: auto;
+  padding: 25px;
 }
 
 .imageBackground {

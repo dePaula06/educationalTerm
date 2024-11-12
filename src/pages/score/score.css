@@ -1,53 +1,177 @@
 /* Container principal para a página de pontuação */
-.containerScore {
-    position: relative;
-    width: 100%;
-    min-height: 100vh; /* Altura mínima da tela */
-    overflow-y: auto; /* Permite rolagem vertical */
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Altura mínima da tela */
+  overflow-y: auto; /* Permite rolagem vertical */
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.imageBackgroundScore {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* A imagem ocupa toda a tela */
+  background-image: url("../../assets/imageVictory.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 0; /* Fica atrás do conteúdo */
+}
+
+.blackOpacityScore {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.75;
+  z-index: 1; /* Fica acima da imagem de fundo */
+}
+
+.contentScore {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-align: center; /* Alinha o texto ao centro */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5%; /* Ajuste para dar espaço nas margens */
+  height: auto;
+  min-height: 100%; /* Altura mínima para garantir que o conteúdo ocupe toda a altura */
+  overflow-y: auto;
+}
+
+/* Estilo para o título */
+.typographyTitle {
+  margin: 50px;
+  padding: 0;
+}
+
+/* Estilo para a descrição */
+.typographyDescription {
+  margin-top: 50px;
+  width: 70%; /* Largura da descrição */
+  font-size: 1rem; /* Ajuste da fonte para telas pequenas */
+  font-family: "Poppins-Medium";
+}
+
+/* Estilo para o score */
+.typographyScore {
+  font-family: "Poppins-Medium";
+  font-size: 1rem; /* Ajuste da fonte */
+  width: 70%;
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 600px) {
+  /* Ocultar a descrição em telas pequenas */
+  .contentScore .typographyDescription {
+    display: none;
   }
-  
-  .imageBackgroundScore {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh; /* Continuação de 100% da altura */
-    background-image: url("../../assets/imageVictory.png");
-    background-size: 100% 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    z-index: 0; /* A imagem fica atrás do conteúdo */
+
+  /* Ajuste o tamanho do título para telas pequenas */
+  .contentScore .typographyTitle {
+    font-size: 1.3rem; /* Tamanho do título para telas muito pequenas */
   }
-  
-  .blackOpacityScore {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    opacity: 0.75; /* Opacidade escura para contraste */
-    z-index: 1; /* Fica acima da imagem de fundo */
+
+  /* Ajuste o tamanho da pontuação para telas pequenas */
+  .contentScore .typographyScore {
+    font-size: 1rem; /* Tamanho menor da pontuação */
   }
-  
-  .contentScore {
-    position: relative;
-    z-index: 2;
-    color: #fff;
+
+  /* Ajuste a largura do botão */
+  .contentScore .buttonContainer {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  button {
+    font-size: 1rem;
+    width: 100%; /* Botão ocupa toda a largura da tela */
+  }
+}
+
+/* Estilos para telas pequenas a médias (601px até 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+  .contentScore .typographyTitle {
+    font-size: 1.7rem; /* Tamanho moderado do título */
+  }
+
+  .contentScore .typographyDescription {
+    font-size: 0.9rem; /* Tamanho moderado da descrição */
+    width: 80%;
+    text-align: center;
+  }
+
+  .contentScore .typographyScore {
+    font-size: 1.1rem; /* Tamanho moderado da pontuação */
+  }
+
+  .contentScore .buttonContainer {
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  button {
+    font-size: 1.1rem;
+    width: 80%;
+  }
+}
+
+/* Estilos para telas médias grandes e grandes (acima de 900px) */
+@media (min-width: 901px) {
+  .contentScore .typographyTitle {
+    font-size: 2.5rem; /* Tamanho maior do título */
+  }
+
+  .contentScore .typographyDescription {
+    font-size: 1.1rem; /* Descrição com tamanho adequado */
+    width: 70%;
     text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 5%; /* Ajuste para dar espaço nas margens */
-    min-height: 100vh; /* Altura mínima para permitir rolagem */
-    overflow-y: auto; /* Adiciona rolagem vertical quando necessário */
   }
-  .buttonContainer {
-    display: flex;
-    justify-content: center; /* Centraliza o botão horizontalmente */
-    width: 100%;
-    margin-top: 100px; /* Ajuste a margem conforme necessário */
+
+  .contentScore .typographyScore {
+    font-size: 1.4rem; /* Tamanho adequado da pontuação */
   }
-  
-  
+
+  .contentScore .buttonContainer {
+    width: 50%;
+    margin-top: 60px; /* Ajuste da margem do botão */
+  }
+
+  button {
+    font-size: 1.2rem;
+    width: 50%;
+  }
+}
+
+/* Estilos para telas extra grandes (acima de 1200px) */
+@media (min-width: 1200px) {
+  .contentScore .typographyTitle {
+    font-size: 3.5rem; /* Título maior para telas muito grandes */
+  }
+
+  .contentScore .typographyDescription {
+    font-size: 1.2rem; /* Aumento da descrição */
+  }
+
+  .contentScore .typographyScore {
+    font-size: 1.5rem; /* Aumento da pontuação */
+  }
+
+  .contentScore .buttonContainer {
+    width: 40%;
+    margin-top: 60px;
+  }
+
+  button {
+    font-size: 1.3rem;
+    width: 90%;
+  }
+}
