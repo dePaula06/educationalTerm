@@ -5,7 +5,7 @@
   align-items: center;
   width: 100%;
   height: 100vh; /* Garante que a altura seja de 100% da viewport */
-  overflow: hidden; /* Evita que o conteúdo extra exceda a altura */
+  overflow: hidden; /* Impede que o conteúdo extra saia da área da tela */
   padding: 25px;
 }
 
@@ -42,6 +42,18 @@
   max-width: 90%; /* Limita o conteúdo horizontalmente */
   max-height: 90vh; /* Limita a altura para 90% da viewport */
   overflow-y: auto; /* Adiciona rolagem vertical quando necessário */
+  scrollbar-width: thin; /* Para Firefox, torna a barra de rolagem mais fina */
+  scrollbar-color: #00bcd4 #333; /* Para Firefox, define as cores da barra de rolagem */
+}
+
+/* Personalização da rolagem para navegadores baseados no Webkit (Chrome, Safari) */
+.contentGame::-webkit-scrollbar {
+  width: 8px; /* Largura da barra de rolagem */
+}
+
+.contentGame::-webkit-scrollbar-thumb {
+  background-color: #00bcd4; /* Cor do "polegar" da barra de rolagem */
+  border-radius: 10px; /* Bordas arredondadas para o "polegar" */
 }
 
 /* Novo estilo para header */

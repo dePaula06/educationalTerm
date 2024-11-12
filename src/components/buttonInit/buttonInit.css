@@ -1,28 +1,28 @@
 .containerButton {
-    margin-top: 20%; /* Valor padrão para telas grandes */
+    margin-top: 25%; /* Valor padrão para telas grandes */
 }
 
 @media (max-width: 1440px) {
     .containerButton {
-        margin-top: 25%; /* Aumenta a margem em telas menores */
+        margin-top: 15%; /* Aumenta a margem em telas menores */
     }
 }
 
 @media (max-width: 1024px) {
     .containerButton {
-        margin-top: 30%; /* Aumenta a margem em telas ainda menores */
+        margin-top: 20%; /* Aumenta a margem em telas ainda menores */
     }
 }
 
 @media (max-width: 768px) {
     .containerButton {
-        margin-top: 35%; /* Aumenta a margem em telas pequenas */
+        margin-top: 25%; /* Aumenta a margem em telas pequenas */
     }
 }
 
 @media (max-width: 480px) {
     .containerButton {
-        margin-top: 40%; /* Aumenta a margem em telas muito pequenas */
+        margin-top: 30%; /* Aumenta a margem em telas muito pequenas */
     }
 }
 .MuiButton-root.buttonInit {

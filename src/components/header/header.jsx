@@ -27,6 +27,7 @@ import { faBookOpen, faPersonDress } from "@fortawesome/free-solid-svg-icons";
 const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  // Função para alternar a abertura/fechamento do Drawer
   const toggleDrawer = (open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -38,13 +39,15 @@ const Header = () => {
   };
 
   const navigation = useNavigate();
-  function handleBiography() {
-    navigation("/biografia");
-  }
 
-  function handleWork() {
+  // Funções de navegação
+  const handleBiography = () => {
+    navigation("/biografia");
+  };
+
+  const handleWork = () => {
     navigation("/obra");
-  }
+  };
 
   return (
     <>
@@ -59,17 +62,21 @@ const Header = () => {
               edge="start"
               color="inherit"
               aria-label="menu"
-              sx={{ display: { xs: "flex", md: "none" }, marginRight: 2 }}
+              sx={{
+                display: { xs: "flex", sm: "flex", md: "none" },
+                marginRight: 2,
+              }}
+              // Exibe apenas em telas xs e sm
               onClick={toggleDrawer(true)}
             >
               <MenuIcon />
             </IconButton>
           </Box>
 
-          {/* Botões "Obra" e "Autora" alinhados à direita, visíveis apenas em telas md ou maiores */}
+          {/* Botões "Obra" e "Autora" alinhados à direita, visíveis apenas em telas maiores que md */}
           <Box
             sx={{
-              display: { xs: "none", md: "flex" },
+              display: { xs: "none", md: "flex" }, // Exibe esses botões em telas maiores que md
               gap: "30%",
               justifyContent: "flex-end",
               marginRight: "3%",
@@ -118,7 +125,7 @@ const Header = () => {
               button
               onClick={() => {
                 handleBiography();
-                setDrawerOpen(false);
+                setDrawerOpen(false); // Fecha o Drawer após a navegação
               }}
             >
               <ListItemText className="textButtonMenu" primary="Autora" />
@@ -127,7 +134,7 @@ const Header = () => {
               button
               onClick={() => {
                 handleWork();
-                setDrawerOpen(false);
+                setDrawerOpen(false); // Fecha o Drawer após a navegação
               }}
             >
               <ListItemText className="textButtonMenu" primary="Obra" />
