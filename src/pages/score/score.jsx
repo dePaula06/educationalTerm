@@ -11,7 +11,7 @@ function ScorePage() {
   const { score } = location.state || { score: 0 };
 
   return (
-    <div className="container">
+    <div className="containerScore">
       <div className="imageBackgroundScore" />
       <div className="blackOpacityScore" />
       <div className="contentScore">

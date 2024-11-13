@@ -8,6 +8,12 @@
     }
 }
 
+@media (max-height: 600px) {
+    .containerButton {
+        margin-top: -10%; /* Aumenta a margem em telas menores */
+    }
+}
+
 @media (max-width: 900px) {
     .containerButton {
         margin-top: 15%; /* Aumenta a margem em telas ainda menores */

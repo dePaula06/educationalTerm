@@ -13,7 +13,7 @@
   width: 100%; /* Ocupará 100% da largura */
   height: 100vh; /* Ocupará 100% da altura da tela */
   background-image: url("../../assets/imageInit.png");
-  background-size: 100% 100%; /* A imagem será esticada para ocupar toda a altura e largura */
+  background-size: cover; /* A imagem será esticada para ocupar toda a altura e largura */
   background-position: center center; /* Centraliza a imagem */
   background-repeat: no-repeat;
   z-index: 0; /* Camada mais baixa */

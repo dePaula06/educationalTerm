@@ -56,38 +56,39 @@ const Header = () => {
         sx={{ backgroundColor: "transparent", boxShadow: "none" }}
       >
         <Toolbar>
-          {/* Box para manter o menu hamburguer à esquerda */}
-          <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1 }}>
+          {/* Box para o ícone de menu hambúrguer, alinhado à esquerda */}
+          <Box
+            sx={{
+              display: { xs: "flex", sm: "flex", md: "none" }, // Exibe apenas em telas menores que md
+              justifyContent: "flex-start", // Alinha à esquerda
+              zIndex: 10, // Garante que o ícone fique acima dos outros elementos
+            }}
+          >
             <IconButton
               edge="start"
               color="inherit"
               aria-label="menu"
-              sx={{
-                display: { xs: "flex", sm: "flex", md: "none" },
-                marginRight: 2,
-              }}
-              // Exibe apenas em telas xs e sm
               onClick={toggleDrawer(true)}
             >
               <MenuIcon />
             </IconButton>
           </Box>
 
-          {/* Botões "Obra" e "Autora" alinhados à direita, visíveis apenas em telas maiores que md */}
+          {/* Box para os botões "Obra" e "Autora", alinhados à direita */}
           <Box
             sx={{
-              display: { xs: "none", md: "flex" }, // Exibe esses botões em telas maiores que md
-              gap: "30%",
-              justifyContent: "flex-end",
-              marginRight: "3%",
-              marginTop: "25px",
+              display: { xs: "none", md: "flex" }, // Exibe apenas em telas maiores que md
+              justifyContent: "flex-end", // Alinha os botões à direita
+              flexGrow: 1, // Permite que os botões ocupem o espaço restante
+              gap: "10%", // Espaçamento entre os botões
+              marginTop: "25px", // Ajusta o topo para os botões
             }}
           >
             {/* Botão "Obra" com animação */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }} // Inicialmente invisível e deslocado para a direita
-              animate={{ opacity: 1, x: 0 }} // Tornar visível e retornar à posição original
-              transition={{ duration: 0.6 }} // Duração da animação
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
             >
               <Button className="button" onClick={handleWork}>
                 <FontAwesomeIcon icon={faBookOpen} />
@@ -97,9 +98,9 @@ const Header = () => {
 
             {/* Botão "Autora" com animação */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }} // Inicialmente invisível e deslocado para a direita
-              animate={{ opacity: 1, x: 0 }} // Tornar visível e retornar à posição original
-              transition={{ duration: 0.6, delay: 0.2 }} // Duração da animação com um pequeno atraso
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
               <Button className="button" onClick={handleBiography}>
                 <FontAwesomeIcon icon={faPersonDress} />
