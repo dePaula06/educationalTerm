@@ -31,44 +31,66 @@ function Game() {
   const currentHint = hints[currentWordIndex];
   const navigate = useNavigate(); // Hook para navegação
 
-  const checkAttempt = () => {
+ const checkAttempt = () => {
     if (currentAttempt.length !== currentWord.length) return;
 
-    const newFeedback = currentAttempt.split("").map((char, idx) => {
-      if (char === currentWord[idx]) return "correct"; // Letra e posição corretas
-      if (currentWord.includes(char)) return "present"; // Letra na palavra, posição incorreta
-      return "absent"; // Letra não está na palavra
-    });
+    const wordLettersCount = {}; // Conta de cada letra na palavra correta
+    for (const char of currentWord) {
+        wordLettersCount[char] = (wordLettersCount[char] || 0) + 1;
+    }
+
+    const attemptFeedback = Array(currentWord.length).fill("absent"); // Inicializa com "absent"
+    const usedLetters = {}; // Rastreia quantas vezes usamos cada letra como "present"
+
+    // Primeiro passamos para verificar posições corretas e atualizar o count
+    for (let i = 0; i < currentAttempt.length; i++) {
+        const attemptChar = currentAttempt[i];
+        if (attemptChar === currentWord[i]) {
+            attemptFeedback[i] = "correct";
+            wordLettersCount[attemptChar] -= 1; // Reduz o count para esta letra
+        }
+    }
+
+    // Segundo passo: marcamos as letras "present" quando estão na palavra, mas fora de posição
+    for (let i = 0; i < currentAttempt.length; i++) {
+        const attemptChar = currentAttempt[i];
+        if (attemptFeedback[i] !== "correct" && currentWord.includes(attemptChar)) {
+            // Marca como "present" apenas se ainda há ocorrências restantes dessa letra
+            if (wordLettersCount[attemptChar] > 0) {
+                attemptFeedback[i] = "present";
+                wordLettersCount[attemptChar] -= 1; // Reduz o count para a letra usada como "present"
+            }
+        }
+    }
 
     const newAttempts = [...attempts];
     const attemptIndex = attempts.findIndex((attempt) => attempt === "");
     newAttempts[attemptIndex] = currentAttempt;
 
     setFeedback((prevFeedback) => {
-      const newFb = [...prevFeedback];
-      newFb[attemptIndex] = newFeedback;
-      return newFb;
+        const newFb = [...prevFeedback];
+        newFb[attemptIndex] = attemptFeedback;
+        return newFb;
     });
     setAttempts(newAttempts);
 
-    // Calcula a pontuação com base no número de tentativas
-    if (newFeedback.every((status) => status === "correct")) {
-      setScore(score + (maxAttempts - attemptIndex) * 10); // Mais pontos com menos tentativas
-      setMessage("Parabéns! Você acertou!"); // Mensagem de acerto
-      setGameEnded(true); // Finaliza a palavra atual em caso de acerto
+    if (attemptFeedback.every((status) => status === "correct")) {
+        setScore(score + (maxAttempts - attemptIndex) * 10);
+        setMessage("Parabéns! Você acertou!");
+        setGameEnded(true);
     } else if (attemptIndex + 1 === maxAttempts) {
-      const revealFeedback = Array(currentWord.length).fill("reveal");
-      const newFb = [...feedback];
-      newFb[attemptIndex] = revealFeedback;
-      setFeedback(newFb);
-      newAttempts[attemptIndex] = currentWord; // Exibe a palavra correta
-      setAttempts(newAttempts);
-      setMessage(`Que pena! A palavra correta era "${currentWord}".`); // Mensagem de erro
-      setGameEnded(true);
+        const revealFeedback = Array(currentWord.length).fill("reveal");
+        const newFb = [...feedback];
+        newFb[attemptIndex] = revealFeedback;
+        setFeedback(newFb);
+        newAttempts[attemptIndex] = currentWord;
+        setAttempts(newAttempts);
+        setMessage(`Que pena! A palavra correta era "${currentWord}".`);
+        setGameEnded(true);
     } else {
-      setCurrentAttempt("");
+        setCurrentAttempt("");
     }
-  };
+};
 
   const handleNext = () => {
     if (currentWordIndex < words.length - 1) {

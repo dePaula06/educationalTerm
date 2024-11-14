@@ -85,3 +85,20 @@
 .absent {
   background-color: #FF635B;
 }
+
+.backButton {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+  border-radius: 50%; /* Arredondar botão */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backButton:hover {
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo mais escuro ao passar o mouse */
+}
