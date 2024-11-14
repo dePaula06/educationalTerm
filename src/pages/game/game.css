@@ -43,7 +43,7 @@
   max-height: 90vh; /* Limita a altura para 90% da viewport */
   overflow-y: auto; /* Adiciona rolagem vertical quando necessário */
   scrollbar-width: thin; /* Para Firefox, torna a barra de rolagem mais fina */
-  scrollbar-color: #00bcd4 #333; /* Para Firefox, define as cores da barra de rolagem */
+  scrollbar-color: #55ED66 #333; /* Para Firefox, define as cores da barra de rolagem */
 }
 
 /* Personalização da rolagem para navegadores baseados no Webkit (Chrome, Safari) */
@@ -52,7 +52,7 @@
 }
 
 .contentGame::-webkit-scrollbar-thumb {
-  background-color: #00bcd4; /* Cor do "polegar" da barra de rolagem */
+  background-color: #55ED66; /* Cor do "polegar" da barra de rolagem */
   border-radius: 10px; /* Bordas arredondadas para o "polegar" */
 }
 
